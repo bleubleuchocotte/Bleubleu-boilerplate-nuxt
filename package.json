@@ -20,7 +20,7 @@
 		"sass": "^1.69.7"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "^2.6.1",
+		"@antfu/eslint-config": "^2.6.2",
 		"@nuxt/devtools": "latest",
 		"@vueuse/core": "^10.7.2",
 		"@vueuse/nuxt": "^10.7.1",
