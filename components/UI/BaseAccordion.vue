@@ -1,15 +1,22 @@
 <script setup lang="ts">
 type ComponentProps = {
-	id: {
-		header: string
-		content: string
-	}
+	/**
+	 * The key used for managing the state in the component. It must be **unique** through the whole app.
+	 */
+	stateKey: string
 };
 
-defineProps<ComponentProps>();
+const props = defineProps<ComponentProps>();
 
 const isOpen = ref(false);
 defineExpose({ isOpen, updateHeight });
+
+const id = useState(props.stateKey, () => {
+	return {
+		header: `accordion-header-${Math.random().toString(36).substring(2, 9)}`,
+		content: `accordion-content-${Math.random().toString(36).substring(2, 9)}`,
+	};
+});
 
 const toggleAccordion = useThrottleFn(() => {
 	isOpen.value = !isOpen.value;
