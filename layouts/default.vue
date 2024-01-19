@@ -1,12 +1,5 @@
-<script setup lang="ts">
-const { start } = useLoadingIndicator({
-	throttle: 0,
-});
-start();
-</script>
-
 <template>
-	<NuxtLoadingIndicator />
+	<NuxtLoadingIndicator :throttle="0" />
 	<div>
 		<TheHeader />
 		<slot />
