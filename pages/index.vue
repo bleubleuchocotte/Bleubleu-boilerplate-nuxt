@@ -16,6 +16,27 @@ useSeoMeta({
 		<UIBaseLink href="/legal-notice">
 			Vers les mentions légales
 		</UIBaseLink>
+
+		<UIBaseAccordion state-key="foo">
+			<template #title>
+				<h1>
+					Le titre de mon bouton accordéon
+				</h1>
+			</template>
+			<template #content>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam distinctio amet, labore adipisci asperiores nesciunt temporibus rem numquam commodi! Voluptates impedit nostrum minima et rerum deleniti rem exercitationem nisi dolorem!</p>
+			</template>
+		</UIBaseAccordion>
+		<UIBaseAccordion state-key="fooa">
+			<template #title>
+				<h1>
+					Le titre de mon bouton accordéon
+				</h1>
+			</template>
+			<template #content>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam distinctio amet, labore adipisci asperiores nesciunt temporibus rem numquam commodi! Voluptates impedit nostrum minima et rerum deleniti rem exercitationem nisi dolorem!</p>
+			</template>
+		</UIBaseAccordion>
 	</main>
 </template>
 
