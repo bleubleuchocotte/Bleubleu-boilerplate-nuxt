@@ -17,6 +17,15 @@ useSeoMeta({
 			Vers les mentions légales
 		</UIBaseLink>
 
+		<UIBaseResponsiveContent media-query="(width < 1024px)">
+			<template #mobile>
+				<h4>Ceci est le format mobile</h4>
+			</template>
+			<template #desktop>
+				<h4>Ceci est le format desktop</h4>
+			</template>
+		</UIBaseResponsiveContent>
+
 		<UIBaseAccordion state-key="foo">
 			<template #title>
 				<h1>
