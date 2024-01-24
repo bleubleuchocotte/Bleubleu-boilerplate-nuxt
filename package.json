@@ -22,6 +22,7 @@
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.6.2",
 		"@nuxt/devtools": "latest",
+		"@nuxtjs/device": "^3.1.1",
 		"@vueuse/core": "^10.7.2",
 		"@vueuse/nuxt": "^10.7.2",
 		"eslint": "^8.56.0",
