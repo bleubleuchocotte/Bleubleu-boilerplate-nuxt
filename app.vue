@@ -14,7 +14,6 @@ useServerSeoMeta({
 
 	twitterCard: "summary_large_image",
 
-	robots: "index, follow",
 	themeColor: "#FFFFFF",
 	creator: "BleuBleu Chocotte",
 });
