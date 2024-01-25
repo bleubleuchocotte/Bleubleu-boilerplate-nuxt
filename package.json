@@ -28,7 +28,7 @@
 		"eslint": "^8.56.0",
 		"eslint-plugin-format": "^0.1.0",
 		"nuxt": "^3.9.3",
-		"nuxt-simple-robots": "^3.1.10",
+		"nuxt-simple-robots": "4.0.0-rc.13",
 		"nuxt-simple-sitemap": "^4.4.1",
 		"vue": "^3.4.14",
 		"vue-router": "^4.2.5"
