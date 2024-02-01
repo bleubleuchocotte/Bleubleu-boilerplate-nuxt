@@ -3,9 +3,9 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
 		"@vueuse/nuxt",
-		"nuxt-simple-sitemap",
-		"nuxt-simple-robots",
 		"@nuxtjs/device",
+		"@nuxtjs/sitemap",
+		"nuxt-simple-robots",
 	],
 	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
 	vite: {

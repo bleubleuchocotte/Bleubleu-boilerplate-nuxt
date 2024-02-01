@@ -23,13 +23,13 @@
 		"@antfu/eslint-config": "^2.6.2",
 		"@nuxt/devtools": "latest",
 		"@nuxtjs/device": "^3.1.1",
+		"@nuxtjs/sitemap": "^5.0.5",
 		"@vueuse/core": "^10.7.2",
 		"@vueuse/nuxt": "^10.7.2",
 		"eslint": "^8.56.0",
 		"eslint-plugin-format": "^0.1.0",
 		"nuxt": "^3.10.0",
 		"nuxt-simple-robots": "4.0.0-rc.13",
-		"nuxt-simple-sitemap": "^4.4.1",
 		"vue": "^3.4.14",
 		"vue-router": "^4.2.5"
 	}
