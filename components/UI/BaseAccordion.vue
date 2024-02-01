@@ -62,10 +62,27 @@ function updateHeight() {
 			<slot name="content" />
 		</div>
 	</div>
+	<details class="accordion-no-script">
+		<summary>
+			<slot name="title" />
+		</summary>
+		<slot name="content" />
+	</details>
 </template>
 
 <style scoped lang="scss">
 .accordion {
+	&-no-script {
+		display: none;
+	}
+
+	@media (scripting: none) {
+		display: none;
+
+		&-no-script {
+			display: initial;
+		}
+	}
 	&__button {
 		appearance: none;
 		background-color: transparent;
