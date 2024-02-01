@@ -8,7 +8,6 @@ This is BleuBleu Chocotte's Nuxt 3 boilerplate, a powerful Vue.js framework for 
 
 - **Vue 3 and Nuxt 3**: Utilize the latest versions of Vue.js and Nuxt.js for building robust applications.
 - **ESLint @antfu/eslint-config**: Maintain code consistency and quality with @antfu/eslint-config.
-- **Pinia**: A state-management library for Vue 3.
 - **Sass**: A CSS preprocessor for styling.
 - **Nuxt SEO**: Nuxt module for generating robots.txt and sitemap.xml.
 
@@ -73,7 +72,6 @@ boilerplate-nuxt-3/
 ├── layouts/
 ├── pages/
 ├── public/
-├── stores/
 ├── app.vue
 └── nuxt.config.ts
 ```
@@ -94,8 +92,6 @@ Feel free to modify this folder structure based on your project's specific requi
 
 ### Production
 
-- `@pinia/nuxt`: Pinia integration for Nuxt.
-- `pinia`: State-management library for Vue 3.
 - `sass`: CSS preprocessor.
 - `nuxt-simple-robots`: Nuxt module for generating robots.txt.
 - `nuxt-simple-sitemap`: Nuxt module for generating sitemap.xml.
