@@ -15,8 +15,6 @@
 		"typecheck": "nuxi typecheck"
 	},
 	"dependencies": {
-		"@pinia/nuxt": "^0.5.1",
-		"pinia": "^2.1.7",
 		"sass": "^1.70.0"
 	},
 	"devDependencies": {
