@@ -13,14 +13,14 @@ type ButtonHTMLAttributes = {
 	value?: string | ReadonlyArray<string> | number
 };
 
-withDefaults(defineProps<ButtonHTMLAttributes>(), {
+const props = withDefaults(defineProps<ButtonHTMLAttributes>(), {
 	type: "button",
 	disabled: false,
 });
 </script>
 
 <template>
-	<button class="button" :disabled="disabled" :type="type">
+	<button class="button" v-bind="props">
 		<slot />
 	</button>
 </template>
