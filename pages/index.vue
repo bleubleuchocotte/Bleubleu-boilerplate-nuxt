@@ -5,53 +5,34 @@ useSeoMeta({
 </script>
 
 <template>
-	<main class="starter">
-		<h1>Heading 1</h1>
-		<h2>Heading 2</h2>
-		<h3>Heading 3</h3>
-		<p>Un paragraphe: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid assumenda odio possimus praesentium tempora cumque quis aliquam obcaecati doloremque placeat, et aperiam autem impedit veritatis voluptatibus. Illum laborum nesciunt eaque.</p>
-		<UIBaseLink href="/404">
-			Vers la 404
-		</UIBaseLink>
-		<UIBaseLink href="/legal-notice">
-			Vers les mentions légales
-		</UIBaseLink>
+	<main class="page-home">
+		<h1>Ceci est mon h1</h1>
 
-		<UIBaseResponsiveContent media-query="(width < 1024px)">
-			<template #mobile>
-				<h4>Ceci est le format mobile</h4>
-			</template>
-			<template #desktop>
-				<h4>Ceci est le format desktop</h4>
-			</template>
-		</UIBaseResponsiveContent>
+		<UIButton>
+			Ceci est le contenu de mon bouton
+		</UIButton>
 
-		<UIBaseAccordion state-key="foo">
+		<UIAccordion state-key="foo">
 			<template #title>
-				<h1>
-					Le titre de mon bouton accordéon
-				</h1>
+				Le titre de mon accordéon
 			</template>
+
 			<template #content>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam distinctio amet, labore adipisci asperiores nesciunt temporibus rem numquam commodi! Voluptates impedit nostrum minima et rerum deleniti rem exercitationem nisi dolorem!</p>
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta libero temporibus exercitationem nemo nulla eveniet voluptatibus suscipit velit, molestias blanditiis, dignissimos totam veniam. Quo quia, nostrum eaque adipisci accusantium reiciendis?
 			</template>
-		</UIBaseAccordion>
-		<UIBaseAccordion state-key="fooa">
-			<template #title>
-				<h1>
-					Le titre de mon bouton accordéon
-				</h1>
-			</template>
-			<template #content>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam distinctio amet, labore adipisci asperiores nesciunt temporibus rem numquam commodi! Voluptates impedit nostrum minima et rerum deleniti rem exercitationem nisi dolorem!</p>
-			</template>
-		</UIBaseAccordion>
+		</UIAccordion>
+
+		<UILink to="/">
+			Ceci est un lien
+		</UILink>
+
+		<input type="text">
+		<textarea />
 	</main>
 </template>
 
 <style scoped lang="scss">
-.starter {
-	height: 100vh;
-	width: 100vw;
+.page-home {
+	min-height: 100vh;
 }
 </style>
