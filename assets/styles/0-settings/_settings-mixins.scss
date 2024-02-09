@@ -70,7 +70,7 @@
 	$property,
 	$coef: 1,
 	$important: null,
-	$base-length: (16, 32, 64, 128) /* mobile-xs, mobile, tablet, desktop */
+	$base-length: (2, 2, 4, 4) /* mobile-xs, mobile, tablet, desktop */
 ) {
 	@each $index, $size in $sizes {
 		@media #{map.get($size, "media")} {
@@ -96,10 +96,10 @@
 	$coef: 1,
 	$side: "all",
 	$base-radius: (
+		8,
+		12,
+		12,
 		16,
-		32,
-		64,
-		128,
 	)
 	/* mobile-xs, mobile, tablet, desktop */
 ) {
@@ -146,7 +146,7 @@
 }
 
 // WRAPPER
-@mixin wrapper($wrapper: 1440px, $coef: 1) {
+@mixin wrapper($wrapper: 1440px, $coef: 8) {
 	margin: 0 auto;
 	max-width: $wrapper;
 	width: 100%;
