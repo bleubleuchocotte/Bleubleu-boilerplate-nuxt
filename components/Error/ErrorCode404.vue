@@ -24,8 +24,8 @@ const onClick: () => void = async () => {
 			URL : {{ url }}
 		</p>
 
-		<UIBaseButton :href="safeRoute" @click="onClick">
+		<UIButton @click="onClick">
 			Revenir à la page d'accueil
-		</UIBaseButton>
+		</UIButton>
 	</div>
 </template>

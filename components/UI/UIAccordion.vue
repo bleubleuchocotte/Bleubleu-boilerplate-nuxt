@@ -39,7 +39,7 @@ function updateHeight() {
 
 <template>
 	<div class="accordion" :style="`--accordion-height: ${height}px`">
-		<button
+		<UIButton
 			:id="id.header"
 			type="button"
 			:aria-expanded="isOpen ? 'true' : 'false'"
@@ -50,7 +50,7 @@ function updateHeight() {
 			@blur="isButtonFocused = false"
 		>
 			<slot name="title" :focus="isButtonFocused || isOpen" />
-		</button>
+		</UIButton>
 		<div
 			:id="id.content"
 			ref="target"
@@ -82,16 +82,6 @@ function updateHeight() {
 		&-no-script {
 			display: initial;
 		}
-	}
-	&__button {
-		appearance: none;
-		background-color: transparent;
-		border: unset;
-		padding: 0;
-
-		cursor: pointer;
-
-		width: 100%;
 	}
 
 	&__content {

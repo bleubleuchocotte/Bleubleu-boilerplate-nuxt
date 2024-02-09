@@ -27,22 +27,22 @@ const props = withDefaults(defineProps<ButtonHTMLAttributes>(), {
 
 <style scoped lang="scss">
 .button {
+	@include prop("padding-block", 2);
+	@include prop("padding-inline", 4);
+	@include border(0);
+
 	&:not([disabled]) {
 		cursor: pointer;
 
 		&:hover {
-			color: red;
-		}
-
-		&:active {
-			color: green;
+			background-color: var(--primary);
 		}
 
 		// focus-visible let the UA determines when it need to apply focus style
 		&:focus,
 		&:focus-within,
 		&:focus-visible {
-			outline: 1px solid currentColor;
+			outline: 1px solid var(--text);
 		}
 	}
 }

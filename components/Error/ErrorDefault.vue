@@ -24,8 +24,8 @@ const onClick: () => void = async () => {
 	<div>
 		<div>Une erreur inconnue est survenu: {{ code }}</div>
 		<div>{{ error?.message }}</div>
-		<UIBaseButton :href="safeRoute" @click="onClick">
+		<UIButton @click="onClick">
 			Revenir à la page d'accueil
-		</UIBaseButton>
+		</UIButton>
 	</div>
 </template>
