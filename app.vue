@@ -15,6 +15,8 @@ useServerSeoMeta({
 	twitterCard: "summary_large_image",
 
 	themeColor: "#FFFFFF",
+	colorScheme: "light dark",
+
 	creator: "BleuBleu Chocotte",
 });
 
