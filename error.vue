@@ -5,16 +5,28 @@ type ComponentProps = {
 	error: NuxtError
 };
 
-defineProps<ComponentProps>();
+const props = defineProps<ComponentProps>();
+
+useSeoMeta({
+	title: `${props.error.statusCode} Error`,
+});
+
+const onClick: () => void = async () => {
+	await clearError({
+		redirect: "/",
+	});
+};
 </script>
 
 <template>
 	<div>
-		<NuxtLayout name="404">
-			<main>
-				<ErrorCode404 v-if="error?.statusCode === 404" :url="$route.path" />
-				<ErrorDefault v-else :code="error.statusCode ?? -1" />
-			</main>
+		<NuxtLayout name="error">
+			<ErrorCode404 v-if="error?.statusCode === 404" />
+			<ErrorDefault v-else />
+
+			<UIButton @click="onClick">
+				Revenir à la page d'accueil
+			</UIButton>
 		</NuxtLayout>
 	</div>
 </template>
