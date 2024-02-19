@@ -2,6 +2,10 @@
 useSeoMeta({
 	title: "Accueil",
 });
+
+function error500() {
+	throw createError({ statusCode: 500, fatal: true });
+}
 </script>
 
 <template>
@@ -22,9 +26,12 @@ useSeoMeta({
 			</template>
 		</UIAccordion>
 
-		<UILink to="/">
+		<UILink to="/404">
 			Ceci est un lien
 		</UILink>
+		<UIButton @click="error500">
+			Error 500
+		</UIButton>
 
 		<input type="text">
 		<textarea />
