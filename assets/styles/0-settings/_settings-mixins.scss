@@ -3,7 +3,11 @@
 
 // FONT
 @function pxToVw($size, $breakpoint, $coef: 0.8) {
-	@return max(#{$size * $coef}px, ($size / $breakpoint) * 100vw);
+	@return clamp(
+		#{$size * $coef}px,
+		($size / $breakpoint) * 100vw,
+		#{$size * (2 - $coef)}px
+	);
 }
 
 @mixin font($font) {

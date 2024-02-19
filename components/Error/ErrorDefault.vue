@@ -1,31 +1,14 @@
 <script setup lang="ts">
-type ComponentProps = {
-	code: number
-};
-
-const props = defineProps<ComponentProps>();
-
-useSeoMeta({
-	title: `${props.code} Error`,
-});
-
 const error = useError();
 
-const safeRoute = "/";
-
-const onClick: () => void = async () => {
-	await clearError({
-		redirect: safeRoute,
-	});
-};
+const isDevEnvironment = import.meta.dev;
 </script>
 
 <template>
 	<div>
-		<div>Une erreur inconnue est survenu: {{ code }}</div>
-		<div>{{ error?.message }}</div>
-		<UIButton @click="onClick">
-			Revenir à la page d'accueil
-		</UIButton>
+		<h1>Une erreur inconnue est survenu: {{ error?.statusCode ?? -1 }}</h1>
+		<p v-if="isDevEnvironment">
+			{{ error?.message }}
+		</p>
 	</div>
 </template>
