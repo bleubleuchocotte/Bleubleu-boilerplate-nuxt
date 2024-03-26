@@ -1,21 +1,5 @@
 <script setup lang="ts">
-import type { RouteLocationRaw } from "vue-router";
-
-type NuxtLinkProps = {
-	to?: RouteLocationRaw
-	href?: RouteLocationRaw
-	external?: boolean
-	replace?: boolean
-	custom?: boolean
-	target?: "_blank" | "_parent" | "_self" | "_top"
-	rel?: string | null
-	noRel?: boolean
-	prefetch?: boolean
-	noPrefetch?: boolean
-	activeClass?: string
-	exactActiveClass?: string
-	ariaCurrentValue?: string
-};
+import type { NuxtLinkProps } from "#app/components/nuxt-link";
 
 const props = withDefaults(defineProps<NuxtLinkProps>(), {
 	noPrefetch: undefined,
