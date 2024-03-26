@@ -15,20 +15,20 @@
 		"typecheck": "nuxi typecheck"
 	},
 	"dependencies": {
-		"sass": "^1.71.0"
+		"sass": "^1.72.0"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "^2.6.4",
+		"@antfu/eslint-config": "^2.9.0",
 		"@nuxt/devtools": "latest",
 		"@nuxtjs/device": "^3.1.1",
-		"@nuxtjs/sitemap": "^5.0.5",
-		"@vueuse/core": "^10.7.2",
-		"@vueuse/nuxt": "^10.7.2",
-		"eslint": "^8.56.0",
+		"@nuxtjs/sitemap": "^5.1.2",
+		"@vueuse/core": "^10.9.0",
+		"@vueuse/nuxt": "^10.9.0",
+		"eslint": "^8.57.0",
 		"eslint-plugin-format": "^0.1.0",
-		"nuxt": "^3.10.0",
+		"nuxt": "^3.11.1",
 		"nuxt-simple-robots": "4.0.0-rc.13",
-		"vue": "^3.4.14",
-		"vue-router": "^4.2.5"
+		"vue": "^3.4.21",
+		"vue-router": "^4.3.0"
 	}
 }
