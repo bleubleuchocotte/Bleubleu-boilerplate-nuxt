@@ -15,7 +15,7 @@
 		"typecheck": "nuxi typecheck"
 	},
 	"dependencies": {
-		"sass": "^1.72.0"
+		"sass": "^1.74.1"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.9.0",
