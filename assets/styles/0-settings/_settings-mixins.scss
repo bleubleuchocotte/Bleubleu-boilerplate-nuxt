@@ -1,7 +1,37 @@
 @use "sass:map";
 @use "sass:list";
 
-// FONT
+/**
+ * Converts pixel values to viewport width (vw) units with optional clamping based on breakpoints and coefficient.
+ *
+ * @param {Number} $size - The size in pixels to be converted to viewport width units.
+ * @param {Number} $breakpoint - The breakpoint value at which the conversion switches to percentage-based vw units.
+ * @param {Number} [$coef=0.8] - Optional. The coefficient applied to the base length. Defaults to 0.8.
+ *
+ * @returns {String} The converted value in viewport width units, clamped between the provided minimum and maximum values.
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     width: pxToVw(200, 768);
+ * }
+ *
+ * // CSS Output
+ * .element {
+ *     width: clamp(160px, 26.04167vw, 240px);
+ * }
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     font-size: pxToVw(16, 768, 0.7);
+ * }
+ *
+ * // CSS Output
+ * .element {
+ *     font-size: clamp(11.2px, 1.04167vw, 12.8px);
+ * }
+ */
 @function pxToVw($size, $breakpoint, $coef: 0.8) {
 	@return clamp(
 		#{$size * $coef}px,
@@ -10,6 +40,43 @@
 	);
 }
 
+/**
+ * Sets the font properties for different text elements based on the specified font type.
+ *
+ * @param {String} $font - The type of font to be applied. Options include: "text/p", "title/h1", "title/h2", "title/h3", "title/h4".
+ *
+ * @example
+ * // SCSS
+ * .text-paragraph {
+ *     @include font("text/p");
+ * }
+ *
+ * // CSS Output
+ * .text-paragraph {
+ *     line-height: normal;
+ *     font-weight: normal;
+ * }
+ * @media (min-width: 576px) {
+ *     .text-paragraph {
+ *         font-size: clamp(14.4px, 1.66667vw, 25.92px);
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .text-paragraph {
+ *         font-size: clamp(14.4px, 1.66667vw, 25.92px);
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .text-paragraph {
+ *         font-size: clamp(14.4px, 1.66667vw, 25.92px);
+ *     }
+ * }
+ * @media (min-width: 1200px) {
+ *     .text-paragraph {
+ *         font-size: clamp(14.4px, 1.66667vw, 25.92px);
+ *     }
+ * }
+ */
 @mixin font($font) {
 	@if ($font == "text/p") {
 		// mobile-xs, mobile, tablet, desktop
@@ -69,7 +136,48 @@
 	}
 }
 
-// CUSTOM PROPERTY
+/**
+ * Generates CSS properties with responsive values based on a specified base length and breakpoints.
+ *
+ * @param {String} $property - The CSS property to be generated.
+ * @param {Number} [$coef=1] - Optional. The coefficient applied to the base length. Defaults to 1.
+ * @param {String} [$important=null] - Optional. Whether the `!important` flag should be included. If provided as !important, the flag will be included; otherwise, it defaults to null.
+ * @param {List} [$base-length=(2, 2, 4, 4)] - Optional. The base length for different breakpoints. Defaults to (2, 2, 4, 4) where the first value corresponds to mobile-xs, second to mobile, third to tablet, and fourth to desktop.
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include prop('margin-top', 2);
+ * }
+ *
+ * // CSS Output
+ * .element {
+ *     margin-top: calc(2vw);
+ * }
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include prop('padding-left', 1.5, !important, (3, 3, 5, 6));
+ * }
+ *
+ * // CSS Output
+ * @media (min-width: 576px) {
+ *     .element {
+ *         padding-left: clamp(1.2px, 12.5vw, 10.8px) !important;
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .element {
+ *         padding-left: clamp(1.875px, 20.83333vw, 3.75px) !important;
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .element {
+ *         padding-left: clamp(2.4px, 25vw, 5.2px) !important;
+ *     }
+ * }
+ */
 @mixin prop(
 	$property,
 	$coef: 1,
@@ -88,14 +196,137 @@
 	}
 }
 
+/**
+ * Sets the padding properties for an element using the prop mixin.
+ *
+ * @param {Number} [$coef=1] - Optional. The coefficient applied to the base length. Defaults to 1.
+ * @param {String} [$important=null] - Optional. Whether the `!important` flag should be included. If provided as `!important`, the flag will be included; otherwise, it defaults to null.
+ *
+ * @example
+ * // SCSS
+ * .box {
+ *     @include padding(2);
+ * }
+ *
+ * // CSS Output
+ * .box {
+ *     padding: clamp(1.6px, 2vw, 2.8px);
+ * }
+ *
+ * @example
+ * // SCSS
+ * .box {
+ *     @include padding(1.5, "!important");
+ * }
+ *
+ * // CSS Output
+ * .box {
+ *     padding: clamp(1.2px, 1.66667vw, 2.4px) !important;
+ * }
+ */
 @mixin padding($coef: 1, $important: null) {
 	@include prop("padding", $coef, $important);
 }
+
+/**
+ * Sets the gap properties for a grid container using the prop mixin.
+ *
+ * @param {Number} [$coef=1] - Optional. The coefficient applied to the base length. Defaults to 1.
+ * @param {String} [$important=null] - Optional. Whether the `!important` flag should be included. If provided as `!important`, the flag will be included; otherwise, it defaults to null.
+ *
+ * @example
+ * // SCSS
+ * .grid-container {
+ *     @include gap(2);
+ * }
+ *
+ * // CSS Output
+ * .grid-container {
+ *     gap: clamp(1.6px, 2vw, 2.8px);
+ * }
+ *
+ * @example
+ * // SCSS
+ * .grid-container {
+ *     @include gap(1.5, "!important");
+ * }
+ *
+ * // CSS Output
+ * .grid-container {
+ *     gap: clamp(1.2px, 1.66667vw, 2.4px) !important;
+ * }
+ */
 @mixin gap($coef: 1, $important: null) {
 	@include prop("gap", $coef, $important);
 }
 
-// BORDER
+/**
+ * Sets the border radius properties for an element's corners using the specified side and coefficient.
+ *
+ * @param {Number} [$coef=1] - Optional. The coefficient applied to the base radius. Defaults to 1.
+ * @param {String} [$side="all"] - Optional. The side to apply the border radius. Options include: "all", "right", "left", "bottom", "top". Defaults to "all".
+ * @param {List} [$base-radius=(8, 12, 12, 16)] - Optional. The base radius for different breakpoints. Defaults to (8, 12, 12, 16) where the first value corresponds to mobile-xs, second to mobile, third to tablet, and fourth to desktop.
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include border-radius(2);
+ * }
+ *
+ * // CSS Output
+ * @media (min-width: 576px) {
+ *     .element {
+ *         border-radius: 16px;
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .element {
+ *         border-radius: 24px;
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .element {
+ *         border-radius: 24px;
+ *     }
+ * }
+ * @media (min-width: 1200px) {
+ *     .element {
+ *         border-radius: 32px;
+ *     }
+ * }
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include border-radius(1, "right");
+ * }
+ *
+ * // CSS Output
+ * @media (min-width: 576px) {
+ *     .element {
+ *         border-top-right-radius: 8px;
+ *         border-bottom-right-radius: 8px;
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .element {
+ *         border-top-right-radius: 12px;
+ *         border-bottom-right-radius: 12px;
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .element {
+ *         border-top-right-radius: 12px;
+ *         border-bottom-right-radius: 12px;
+ *     }
+ * }
+ * @media (min-width: 1200px) {
+ *     .element {
+ *         border-top-right-radius: 16px;
+ *         border-bottom-right-radius: 16px;
+ *     }
+ * }
+ */
 @mixin border-radius(
 	$coef: 1,
 	$side: "all",
@@ -129,6 +360,80 @@
 	}
 }
 
+/**
+ * Sets the border properties for an element including border width, style, color, and border radius using the specified coefficient and color.
+ *
+ * @param {Number} [$coef=1] - Optional. The coefficient applied to the base radius. Defaults to 1.
+ * @param {String} [$color=null] - Optional. The color of the border. Defaults to null.
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include border(2);
+ * }
+ *
+ * // CSS Output
+ * @media (min-width: 576px) {
+ *     .element {
+ *         border: 1px solid;
+ *         border-radius: 16px;
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .element {
+ *         border: 1px solid;
+ *         border-radius: 24px;
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .element {
+ *         border: 1px solid;
+ *         border-radius: 24px;
+ *     }
+ * }
+ * @media (min-width: 1200px) {
+ *     .element {
+ *         border: 2px solid;
+ *         border-radius: 32px;
+ *     }
+ * }
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include border(1, #ff0000);
+ * }
+ *
+ * // CSS Output
+ * @media (min-width: 576px) {
+ *     .element {
+ *         border: 1px solid;
+ *         border-color: #ff0000;
+ *         border-radius: 8px;
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .element {
+ *         border: 1px solid;
+ *         border-color: #ff0000;
+ *         border-radius: 12px;
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .element {
+ *         border: 1px solid;
+ *         border-color: #ff0000;
+ *         border-radius: 12px;
+ *     }
+ * }
+ * @media (min-width: 1200px) {
+ *     .element {
+ *         border: 1.5px solid;
+ *         border-color: #ff0000;
+ *         border-radius: 16px;
+ *     }
+ * }
+ */
 @mixin border($coef: 1, $color: null) {
 	border: 1px solid;
 	@if $color != null {
@@ -137,7 +442,39 @@
 	@include border-radius($coef);
 }
 
-// POSITIONING
+/**
+ * Sets the top, bottom, left, and right properties of an element simultaneously,
+ * with optional support for the CSS `inset` shorthand property.
+ *
+ * @param {Number|String} $arg - Optional. The value to be applied to the top, bottom, left, and right properties. If not provided, defaults to `0`.
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include inset(10px);
+ * }
+ *
+ * // CSS Output
+ * .element {
+ *     top: 10px;
+ *     bottom: 10px;
+ *     left: 10px;
+ *     right: 10px;
+ * }
+ *
+ * @example
+ * // HTML
+ * <div class="box"></div>
+ *
+ * // SCSS
+ * .box {
+ *     width: 100px;
+ *     height: 100px;
+ *     background-color: #ccc;
+ *
+ *     @include inset(20px);
+ * }
+ */
 @mixin inset($arg: 0) {
 	top: $arg;
 	bottom: $arg;
@@ -149,7 +486,80 @@
 	}
 }
 
-// WRAPPER
+/**
+ * Sets the styling properties for a wrapper element, including margin, maximum width, width, and padding-inline using the specified wrapper width and coefficient.
+ *
+ * @param {String} [$wrapper="1440px"] - Optional. The maximum width of the wrapper element. Defaults to "1440px".
+ * @param {Number} [$coef=8] - Optional. The coefficient applied to the base padding-inline. Defaults to 8.
+ *
+ * @example
+ * // SCSS
+ * .wrapper {
+ *     @include wrapper;
+ * }
+ *
+ * // CSS Output
+ * .wrapper {
+ *     margin: 0 auto;
+ *     max-width: 1440px;
+ *     width: 100%;
+ *     padding-inline: clamp(16px, 1.66667vw, 28.8px);
+ * }
+ * @media (min-width: 576px) {
+ *     .wrapper {
+ *         padding-inline: clamp(16px, 1.66667vw, 28.8px);
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .wrapper {
+ *         padding-inline: clamp(16px, 1.66667vw, 28.8px);
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .wrapper {
+ *         padding-inline: clamp(16px, 1.66667vw, 28.8px);
+ *     }
+ * }
+ * @media (min-width: 1200px) {
+ *     .wrapper {
+ *         padding-inline: clamp(16px, 1.66667vw, 28.8px);
+ *     }
+ * }
+ *
+ * @example
+ * // SCSS
+ * .custom-wrapper {
+ *     @include wrapper(1200px, 10);
+ * }
+ *
+ * // CSS Output
+ * .custom-wrapper {
+ *     margin: 0 auto;
+ *     max-width: 1200px;
+ *     width: 100%;
+ *     padding-inline: clamp(20px, 1.66667vw, 36px);
+ * }
+ * @media (min-width: 576px) {
+ *     .custom-wrapper {
+ *         padding-inline: clamp(20px, 1.66667vw, 36px);
+ *     }
+ * }
+ * @media (min-width: 768px) {
+ *     .custom-wrapper {
+ *         padding-inline: clamp(20px, 1.66667vw, 36px);
+ *     }
+ * }
+ * @media (min-width: 992px) {
+ *     .custom-wrapper {
+ *         padding-inline: clamp(20px, 1.66667vw, 36px);
+ *     }
+ * }
+ * @media (min-width: 1200px) {
+ *     .custom-wrapper {
+ *         padding-inline: clamp(20px, 1.66667vw, 36px);
+ *     }
+ * }
+ */
 @mixin wrapper($wrapper: 1440px, $coef: 8) {
 	margin: 0 auto;
 	max-width: $wrapper;
@@ -158,7 +568,25 @@
 	@include prop("padding-inline", $coef);
 }
 
-// TRANSITION
+/**
+ * Sets transition properties for specified CSS properties with customizable durations, easings, and delays.
+ *
+ * @param {String[]} [$properties=(all)] - Optional. The CSS properties to apply transitions to. Defaults to ["all"].
+ * @param {String[]} [$durations=()] - Optional. The durations of the transitions for each property. Defaults to an empty array.
+ * @param {String[]} [$easings=()] - Optional. The easing functions for each property's transition. Defaults to an empty array.
+ * @param {String[]} [$delays=()] - Optional. The delays before each property's transition starts. Defaults to an empty array.
+ *
+ * @example
+ * // SCSS
+ * .element {
+ *     @include transition((color, background), (0.5s, 1s), (ease-in, ease-out), (0s, 0.2s));
+ * }
+ *
+ * // CSS Output
+ * .element {
+ *     transition: color 0.5s ease-in 0s, background 1s ease-out 0.2s;
+ * }
+ */
 @mixin transition(
 	$properties: (
 		all,
