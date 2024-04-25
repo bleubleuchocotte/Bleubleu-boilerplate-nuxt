@@ -19,15 +19,15 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.15.0",
-		"@nuxt/devtools": "latest",
+		"@nuxt/devtools": "^1.2.0",
 		"@nuxtjs/device": "^3.1.1",
-		"@nuxtjs/sitemap": "^5.1.2",
+		"@nuxtjs/sitemap": "^5.1.4",
 		"@vueuse/core": "^10.9.0",
 		"@vueuse/nuxt": "^10.9.0",
 		"eslint": "^8.57.0",
 		"eslint-plugin-format": "^0.1.0",
 		"nuxt": "^3.11.1",
-		"nuxt-simple-robots": "4.0.0-rc.13",
+		"nuxt-simple-robots": "4.0.0-rc.17",
 		"vue": "^3.4.21",
 		"vue-router": "^4.3.0"
 	}
