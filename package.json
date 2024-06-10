@@ -1,9 +1,11 @@
 {
-	"name": "nuxt-app",
+	"name": "bleubleu-chocotte-nuxt-boilerplate",
 	"type": "module",
+	"version": "1.0.0",
 	"private": true,
 	"packageManager": "pnpm@9.2.0",
 	"description": "BleuBleu Chocotte's Nuxt 3 boilerplate",
+	"author": "Thomas Auffroy <thomas.auffroy@gmail.com> (https://thomas-auffroy.dev)",
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
