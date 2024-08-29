@@ -4,7 +4,7 @@ export default defineNuxtConfig({
 	modules: [
 		"@vueuse/nuxt",
 		"@nuxtjs/sitemap",
-		"nuxt-simple-robots",
+		"@nuxtjs/robots",
 	],
 	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
 	vite: {
