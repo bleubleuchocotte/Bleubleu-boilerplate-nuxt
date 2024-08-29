@@ -100,51 +100,6 @@
 	@include prop("gap", $coef, $important);
 }
 
-@mixin border-radius(
-	$coef: 1,
-	$side: "all",
-	$base-radius: (
-		8,
-		12,
-		12,
-		16,
-	)
-	/* mobile-xs, mobile, tablet, desktop */
-) {
-	& {
-		@each $index, $size in $sizes {
-			@media #{map.get($size, "media")} {
-				$radius: list.nth($base-radius, $index) * $coef;
-				@if $side == "all" {
-					border-radius: #{$radius}px;
-				} @else if $side == "right" {
-					border-top-right-radius: #{$radius}px;
-					border-bottom-right-radius: #{$radius}px;
-				} @else if $side == "left" {
-					border-top-left-radius: #{$radius}px;
-					border-bottom-left-radius: #{$radius}px;
-				} @else if $side == "bottom" {
-					border-bottom-right-radius: #{$radius}px;
-					border-bottom-left-radius: #{$radius}px;
-				} @else if $side == "top" {
-					border-top-right-radius: #{$radius}px;
-					border-top-left-radius: #{$radius}px;
-				}
-			}
-		}
-	}
-}
-
-@mixin border($coef: 1, $color: null) {
-	& {
-		border: 1px solid;
-		@if $color != null {
-			border-color: $color;
-		}
-		@include border-radius($coef);
-	}
-}
-
 @mixin inset($arg: 0) {
 	top: $arg;
 	bottom: $arg;
