@@ -9,56 +9,71 @@
 	@if ($font == "text/p") {
 		// mobile-xs, mobile, tablet, desktop
 		$base-fs: 18, 18, 18, 18;
-		line-height: normal;
-		font-weight: normal;
 
-		@each $index, $size in $sizes {
-			@media #{map.get($size, "media")} {
-				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+		& {
+			line-height: normal;
+			font-weight: normal;
+
+			@each $index, $size in $sizes {
+				@media #{map.get($size, "media")} {
+					font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+				}
 			}
 		}
 	} @else if ($font == "title/h1") {
 		// mobile-xs, mobile, tablet, desktop
 		$base-fs: 45, 45, 45, 45;
-		line-height: normal;
-		font-weight: normal;
 
-		@each $index, $size in $sizes {
-			@media #{map.get($size, "media")} {
-				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+		& {
+			line-height: normal;
+			font-weight: normal;
+
+			@each $index, $size in $sizes {
+				@media #{map.get($size, "media")} {
+					font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+				}
 			}
 		}
 	} @else if ($font == "title/h2") {
 		// mobile-xs, mobile, tablet, desktop
 		$base-fs: 32, 32, 32, 32;
-		line-height: normal;
-		font-weight: normal;
 
-		@each $index, $size in $sizes {
-			@media #{map.get($size, "media")} {
-				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+		& {
+			line-height: normal;
+			font-weight: normal;
+
+			@each $index, $size in $sizes {
+				@media #{map.get($size, "media")} {
+					font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+				}
 			}
 		}
 	} @else if ($font == "title/h3") {
 		// mobile-xs, mobile, tablet, desktop
 		$base-fs: 24, 24, 24, 24;
-		line-height: normal;
-		font-weight: normal;
 
-		@each $index, $size in $sizes {
-			@media #{map.get($size, "media")} {
-				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+		& {
+			line-height: normal;
+			font-weight: normal;
+
+			@each $index, $size in $sizes {
+				@media #{map.get($size, "media")} {
+					font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+				}
 			}
 		}
 	} @else if ($font == "title/h4") {
 		// mobile-xs, mobile, tablet, desktop
 		$base-fs: 20, 20, 20, 20;
-		line-height: normal;
-		font-weight: normal;
 
-		@each $index, $size in $sizes {
-			@media #{map.get($size, "media")} {
-				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+		& {
+			line-height: normal;
+			font-weight: normal;
+
+			@each $index, $size in $sizes {
+				@media #{map.get($size, "media")} {
+					font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+				}
 			}
 		}
 	}
@@ -96,34 +111,38 @@
 	)
 	/* mobile-xs, mobile, tablet, desktop */
 ) {
-	@each $index, $size in $sizes {
-		@media #{map.get($size, "media")} {
-			$radius: list.nth($base-radius, $index) * $coef;
-			@if $side == "all" {
-				border-radius: #{$radius}px;
-			} @else if $side == "right" {
-				border-top-right-radius: #{$radius}px;
-				border-bottom-right-radius: #{$radius}px;
-			} @else if $side == "left" {
-				border-top-left-radius: #{$radius}px;
-				border-bottom-left-radius: #{$radius}px;
-			} @else if $side == "bottom" {
-				border-bottom-right-radius: #{$radius}px;
-				border-bottom-left-radius: #{$radius}px;
-			} @else if $side == "top" {
-				border-top-right-radius: #{$radius}px;
-				border-top-left-radius: #{$radius}px;
+	& {
+		@each $index, $size in $sizes {
+			@media #{map.get($size, "media")} {
+				$radius: list.nth($base-radius, $index) * $coef;
+				@if $side == "all" {
+					border-radius: #{$radius}px;
+				} @else if $side == "right" {
+					border-top-right-radius: #{$radius}px;
+					border-bottom-right-radius: #{$radius}px;
+				} @else if $side == "left" {
+					border-top-left-radius: #{$radius}px;
+					border-bottom-left-radius: #{$radius}px;
+				} @else if $side == "bottom" {
+					border-bottom-right-radius: #{$radius}px;
+					border-bottom-left-radius: #{$radius}px;
+				} @else if $side == "top" {
+					border-top-right-radius: #{$radius}px;
+					border-top-left-radius: #{$radius}px;
+				}
 			}
 		}
 	}
 }
 
 @mixin border($coef: 1, $color: null) {
-	border: 1px solid;
-	@if $color != null {
-		border-color: $color;
+	& {
+		border: 1px solid;
+		@if $color != null {
+			border-color: $color;
+		}
+		@include border-radius($coef);
 	}
-	@include border-radius($coef);
 }
 
 @mixin inset($arg: 0) {
@@ -138,11 +157,12 @@
 }
 
 @mixin wrapper($wrapper: 1440px, $coef: 8) {
-	margin: 0 auto;
-	max-width: $wrapper;
-	width: 100%;
-
-	@include prop("padding-inline", $coef);
+	& {
+		margin: 0 auto;
+		max-width: $wrapper;
+		width: 100%;
+		@include prop("padding-inline", $coef);
+	}
 }
 
 @mixin transition(
@@ -183,5 +203,7 @@
 		$transitions: append($transitions, $transition, $separator: comma);
 	}
 
-	transition: $transitions;
+	& {
+		transition: $transitions;
+	}
 }
