@@ -3,7 +3,6 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
 		"@vueuse/nuxt",
-		"@nuxtjs/device",
 		"@nuxtjs/sitemap",
 		"nuxt-simple-robots",
 	],
