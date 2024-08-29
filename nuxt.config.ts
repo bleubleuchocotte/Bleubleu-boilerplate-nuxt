@@ -2,11 +2,7 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 
-	modules: [
-		"@vueuse/nuxt",
-		"@nuxtjs/sitemap",
-		"@nuxtjs/robots",
-	],
+	modules: ["@vueuse/nuxt", "@nuxtjs/sitemap", "@nuxtjs/robots", "@nuxtjs/device"],
 
 	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
 
@@ -62,6 +58,15 @@ export default defineNuxtConfig({
 
 	robots: {
 		disallow: ["/legal-notice"],
+	},
+
+	typescript: {
+		tsConfig: {
+			compilerOptions: {
+				module: "esnext",
+				target: "esnext",
+			},
+		},
 	},
 
 	compatibilityDate: "2024-08-29",
