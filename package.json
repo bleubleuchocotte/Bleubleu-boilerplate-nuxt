@@ -5,7 +5,7 @@
 	"private": true,
 	"packageManager": "pnpm@9.2.0",
 	"description": "BleuBleu Chocotte's Nuxt 3 boilerplate",
-	"author": "Thomas Auffroy <thomas.auffroy@gmail.com> (https://thomas-auffroy.dev)",
+	"author": "Thomas Auffroy <thomas@bleubleu.studio> (https://thomas-auffroy.dev)",
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
