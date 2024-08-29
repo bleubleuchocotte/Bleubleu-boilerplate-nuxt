@@ -27,9 +27,10 @@ const props = withDefaults(defineProps<ButtonHTMLAttributes>(), {
 
 <style scoped lang="scss">
 .button {
+	border: 1px solid;
+
 	@include prop("padding-block", 2);
 	@include prop("padding-inline", 4);
-	@include border(0);
 
 	&:not([disabled]) {
 		cursor: pointer;
