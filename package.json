@@ -5,6 +5,9 @@
 	"private": true,
 	"packageManager": "pnpm@9.2.0",
 	"author": "Thomas Auffroy <thomas@bleubleu.studio> (https://thomas-auffroy.dev)",
+	"engines": {
+		"node": ">=22.8.0"
+	},
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
