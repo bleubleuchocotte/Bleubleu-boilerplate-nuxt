@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	devtools: { enabled: true },
+	devtools: { enabled: false },
 
-	modules: ["@vueuse/nuxt", "@nuxtjs/sitemap", "@nuxtjs/robots", "@nuxtjs/device"],
+	modules: ["@vueuse/nuxt", "@nuxtjs/sitemap", "@nuxtjs/robots"],
 
 	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
 
@@ -56,8 +56,9 @@ export default defineNuxtConfig({
 		},
 	},
 
-	robots: {
-		disallow: ["/legal-notice"],
+	site: {
+		url: "[SITE URL]",
+		name: "[SITE NAME]",
 	},
 
 	typescript: {

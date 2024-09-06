@@ -27,6 +27,9 @@ const props = withDefaults(defineProps<ButtonHTMLAttributes>(), {
 
 <style scoped lang="scss">
 .button {
+	background-color: var(--text);
+	color: var(--background);
+
 	border: 1px solid;
 
 	@include prop("padding-block", 2);
