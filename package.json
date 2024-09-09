@@ -30,7 +30,7 @@
 	"devDependencies": {
 		"@antfu/eslint-config": "3.2.2",
 		"@nuxt/devtools": "1.4.1",
-		"eslint": "9.9.1",
+		"eslint": "9.10.0",
 		"eslint-plugin-format": "0.1.2",
 		"sass": "1.78.0"
 	}
