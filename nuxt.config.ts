@@ -12,11 +12,6 @@ export default defineNuxtConfig({
 			htmlAttrs: {
 				lang: "fr",
 			},
-			link: [{
-				rel: "icon",
-				type: "image/png",
-				href: `/favicon-32x32.ico`,
-			}],
 			meta: [
 				{
 					name: "description",
@@ -37,10 +32,6 @@ export default defineNuxtConfig({
 				{
 					property: "og:description",
 					content: "La description du site",
-				},
-				{
-					property: "og:image",
-					content: "/images/og-image.png",
 				},
 			],
 		},
