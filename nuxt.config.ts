@@ -50,6 +50,7 @@ export default defineNuxtConfig({
 	site: {
 		url: "[SITE URL]",
 		name: "[SITE NAME]",
+		description: "[SITE DESCRIPTION]",
 	},
 
 	typescript: {
