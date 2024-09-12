@@ -55,8 +55,7 @@ export default defineNuxtConfig({
 	typescript: {
 		tsConfig: {
 			compilerOptions: {
-				module: "esnext",
-				target: "esnext",
+				module: "es2022",
 			},
 		},
 	},
