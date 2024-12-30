@@ -32,7 +32,7 @@ jobs:
       - name: Run pnpm build
         run: pnpm build
 
-  lint-format-typecheck:
+  lint-typecheck:
     runs-on: ubuntu-latest
 
     strategy:
