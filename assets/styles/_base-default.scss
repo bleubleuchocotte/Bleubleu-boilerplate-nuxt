@@ -1,0 +1,43 @@
+:root {
+	// global css variables here
+}
+
+select {
+	color: currentColor; // Reset blue color from -apple-system-blue ios 15
+}
+
+[hide="desktop"] {
+	@media #{$target-l} {
+		display: none !important;
+	}
+}
+
+[hide="mobile"] {
+	@media not #{$target-l} {
+		display: none !important;
+	}
+}
+
+button.reset-ua {
+	cursor: pointer;
+
+	appearance: none;
+	background: transparent;
+	border: unset;
+
+	padding-inline: 0;
+	padding-block: 0;
+}
+
+a.reset-ua {
+	color: var(--white);
+	text-decoration: none;
+}
+
+button[disabled] {
+	cursor: not-allowed;
+}
+
+p {
+	text-wrap: balance;
+}

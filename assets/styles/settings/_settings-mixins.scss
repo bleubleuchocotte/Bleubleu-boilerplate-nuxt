@@ -1,0 +1,165 @@
+@use "./settings-variables" as *;
+
+@function pxToRem($px: $default-font-base) {
+	@return calc(1rem * $px / $default-font-base);
+}
+
+@mixin font($font, $responsive: true) {
+	@if ($font == "fs1-bricolage-46") {
+		& {
+			font-family: "Bricolage Grotesque", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(46);
+			line-height: 100%;
+			font-weight: 600;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(32);
+				}
+			}
+		}
+	} @else if ($font == "fs2-bricolage-32") {
+		& {
+			font-family: "Bricolage Grotesque", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(32);
+			line-height: 100%;
+			font-weight: 400;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(26);
+				}
+			}
+		}
+	} @else if ($font == "fs3-bricolage-26") {
+		& {
+			font-family: "Bricolage Grotesque", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(26);
+			line-height: 100%;
+			font-weight: 500;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(22);
+				}
+			}
+		}
+	} @else if ($font == "fs4-bricolage-18") {
+		& {
+			font-family: "Bricolage Grotesque", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(18);
+			line-height: 100%;
+			font-weight: 700;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(16);
+				}
+			}
+		}
+	} @else if ($font == "fs5-manrope-24") {
+		& {
+			font-family: "Manrope", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(24);
+			line-height: pxToRem(26);
+			font-weight: 500;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(18);
+				}
+			}
+		}
+	} @else if ($font == "fs6-manrope-20") {
+		& {
+			font-family: "Manrope", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(20);
+			line-height: pxToRem(24);
+			font-weight: 400;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(16);
+				}
+			}
+		}
+	} @else if ($font == "fs7-manrope-16") {
+		& {
+			font-family: "Manrope", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(16);
+			line-height: pxToRem(20);
+			font-weight: 400;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(14);
+				}
+			}
+		}
+	} @else if ($font == "fs8-manrope-14") {
+		& {
+			font-family: "Manrope", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(14);
+			line-height: pxToRem(18);
+			font-weight: 500;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(12);
+					font-weight: 400;
+				}
+			}
+		}
+	} @else if ($font == "fs9-manrope-11") {
+		& {
+			font-family: "Manrope", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(11);
+			line-height: pxToRem(18);
+			font-weight: 500;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(9);
+					line-height: pxToRem(12);
+				}
+			}
+		}
+	} @else if ($font == "fs-button-16") {
+		& {
+			font-family: "Manrope", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(16);
+			line-height: pxToRem(20);
+			font-weight: 600;
+
+			@if ($responsive == true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(14);
+					line-height: pxToRem(20);
+				}
+			}
+		}
+	} @else if ($font == "fs-button-14") {
+		& {
+			font-family: "Manrope", Arial, Helvetica, sans-serif;
+			font-size: pxToRem(14);
+			line-height: pxToRem(20);
+			font-weight: 600;
+
+			@if ($responsive== true) {
+				@media not #{$target-l} {
+					font-size: pxToRem(12);
+					line-height: pxToRem(20);
+				}
+			}
+		}
+	}
+}
+
+@mixin wrapper($wrapper: 1440px, $px: $default-font-base) {
+	& {
+		margin: 0 auto;
+		max-width: $wrapper;
+		width: 100%;
+		padding-inline: pxToRem($px);
+	}
+}
