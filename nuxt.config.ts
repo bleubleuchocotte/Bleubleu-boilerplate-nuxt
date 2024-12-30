@@ -1,74 +1,25 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	devtools: { enabled: false },
+	compatibilityDate: "2024-08-29",
+	devtools: { enabled: true },
 
-	modules: ["@vueuse/nuxt", "@nuxtjs/sitemap", "@nuxtjs/robots"],
+	modules: [
+		"@vueuse/nuxt",
+		"@nuxtjs/seo",
+	],
 
-	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
-
-	app: {
-		head: {
-			title: "Le titre du site",
-			htmlAttrs: {
-				lang: "fr",
-			},
-			link: [{
-				rel: "icon",
-				type: "image/png",
-				href: `/favicon-32x32.ico`,
-			}],
-			meta: [
-				{
-					name: "description",
-					content: "La description du site",
-				},
-				{
-					name: "creator",
-					content: "Bleubleu Chocotte",
-				},
-				{
-					name: "twitter:card",
-					content: "summary_large_image",
-				},
-				{
-					property: "og:title",
-					content: "Le titre du site",
-				},
-				{
-					property: "og:description",
-					content: "La description du site",
-				},
-				{
-					property: "og:image",
-					content: "/images/og-image.png",
-				},
-			],
-		},
-	},
+	css: [
+		"@/assets/styles/reset.css",
+		"@/assets/styles/_base-default.scss",
+	],
 
 	vite: {
 		css: {
 			preprocessorOptions: {
 				scss: {
-					additionalData: "@import \"@/assets/styles/main.scss\";",
+					api: "modern-compiler",
+					additionalData: `@use "/assets/styles/settings/main.scss" as *;`,
 				},
 			},
 		},
 	},
-
-	site: {
-		url: "[SITE URL]",
-		name: "[SITE NAME]",
-	},
-
-	typescript: {
-		tsConfig: {
-			compilerOptions: {
-				module: "esnext",
-				target: "esnext",
-			},
-		},
-	},
-
-	compatibilityDate: "2024-08-29",
 });

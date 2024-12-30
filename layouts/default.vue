@@ -1,7 +1,7 @@
 <template>
-	<UIContainer>
+	<UIWrapper>
 		<TheHeader />
 		<slot />
 		<TheFooter />
-	</UIContainer>
+	</UIWrapper>
 </template>
