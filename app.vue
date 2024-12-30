@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { origin } = useRequestURL();
 
+
 updateSiteConfig({
 	name: "",
 	url: origin,
@@ -17,7 +18,6 @@ useHead({
 		type: "image/png",
 		href: `${origin}/favicon-32x32.ico`,
 	}],
-
 });
 
 useSeoMeta({
@@ -49,7 +49,6 @@ useSeoMeta({
 		type: "image/png",
 	},
 	twitterCard: "summary_large_image",
-
 });
 </script>
 
