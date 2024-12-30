@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const { origin } = useRequestURL();
 
-
 updateSiteConfig({
 	name: "",
 	url: origin,
