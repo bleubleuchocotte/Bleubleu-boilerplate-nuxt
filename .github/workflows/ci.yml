@@ -1,57 +1,62 @@
-name: CI
+name: Github CI
 
 on:
-  push:
-    branches:
-      - main
-
   pull_request:
-    branches:
-      - main
-      - develop
-      - release/*
+  push:
+    branches: [main, develop]
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.12.0]
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: ${{ matrix.node-version }}
 
-      - name: Setup
-        run: npm i -g @antfu/ni
+      - name: Install package manager
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.6.0
 
-      - name: Install
-        run: nci
+      - name: Run pnpm install
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Lint
-        run: nr lint
+      - name: Run pnpm build
+        run: pnpm build
 
-  typecheck:
+  lint-typecheck:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.12.0]
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: ${{ matrix.node-version }}
 
-      - name: Setup
-        run: npm i -g @antfu/ni
+      - name: Install package manager
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.6.0
 
-      - name: Install
-        run: nci
+      - name: Run pnpm install
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Typecheck
-        run: nr typecheck
+      - name: Run pnpm lint
+        run: pnpm lint:ci
+
+      - name: Run pnpm typecheck
+        run: pnpm tc
