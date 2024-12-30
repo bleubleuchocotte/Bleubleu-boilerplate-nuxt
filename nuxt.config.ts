@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
 	devtools: { enabled: false },
 
-	modules: ["@vueuse/nuxt", "@nuxtjs/sitemap", "@nuxtjs/robots"],
+	modules: ["@vueuse/nuxt", "@nuxtjs/seo"],
 
 	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
 
